@@ -5,7 +5,7 @@ import Products from "../components/products";
 import Newsletter from "../components/newsLetter";
 import Footer from "../components/footer";
 import { mobile } from "../responsive";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const Container = styled.div``;
@@ -43,6 +43,10 @@ const ProductList = () => {
   const cat = location.pathname.split("/")[2];
   const [filter, setFilters] = useState({});
   const [sort, setSort] = useState("newest");
+
+  useEffect(() => {
+    document.documentElement.scroll(0, 0);
+  }, [location.pathname]);
 
   const handleFilter = (e) => {
     const value = e.target.value;

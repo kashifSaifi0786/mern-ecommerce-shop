@@ -137,6 +137,10 @@ const Product = () => {
     getProduct();
   }, [productId]);
 
+  useEffect(() => {
+    document.documentElement.scroll(0, 0);
+  }, [location.pathname]);
+
   const handleQuantity = (type) => {
     if (type === "dec") {
       quantity > 1 && setQuantity(quantity - 1);
